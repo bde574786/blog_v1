@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,10 +42,13 @@ public class Board {
 
 	// 하나의 게시글에 작성자가 2 사람???
 	// 여러개의 게시글은 하나의 유저를 가진다.
-	@ManyToOne // Many == Board, One == User
+	// Many == Board, One == User
+	@ManyToOne(fetch = FetchType.EAGER) // EAGER는 Board select 한 번에 데이터를 가져와 
 	@JoinColumn(name = "userId")
 	private User userId;
 
+	
+	
 	@CreationTimestamp
 	private Timestamp createDate;
 
