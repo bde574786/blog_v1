@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity // User 클래스가 자동으로 MySQL에 테이블을 생성한다.
-//@DynamicInsert
+@DynamicInsert
 public class User {
 
 	@Id // Primary key
@@ -47,5 +47,5 @@ public class User {
 //	@ColumnDefault("'user'")
 	@Enumerated(EnumType.STRING)     // enum 타입임을 알려야한다. 
 	private RoleType role; // Enum 타입 사용 권장 : admin, user, manager
-
+	
 }
