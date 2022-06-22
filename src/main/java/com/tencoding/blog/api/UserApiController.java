@@ -17,7 +17,10 @@ import com.tencoding.blog.service.UserService;
 public class UserApiController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	@PostMapping("/api/user")
 	public ResponseDto<Integer> save(@RequestBody User user) {
@@ -30,14 +33,14 @@ public class UserApiController {
 	}
 
 	@PostMapping("/api/user/login")
-	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session) {
+	public ResponseDto<Integer> login(@RequestBody User user) {
 		System.out.println("login 호출됨");
 		// 서비스한테 요청
 		// principal 접근 주체
 		User principal = userService.login(user);
 		// 접근 주체가 정상적으로 username, password 확인 (세션이라는 거대한 메모리에 저장)
 		if(principal != null) {
-			session.setAttribute("principal", principal);	
+			httpSession.setAttribute("principal", principal);	
 			System.out.println("세션 정보가 저장되었습니다.");
 		}
 		
