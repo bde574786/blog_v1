@@ -1,24 +1,16 @@
 package com.tencoding.blog.service;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tencoding.blog.model.User;
 import com.tencoding.blog.repository.UserRepository;
 
 @Service // IoC 등록
 public class UserService {
-	
-	
-	/**
-	 * 
-	 *  서비스가 필요한 이유
-	 * 	
-	 * 
-	 * 
-	 */
 	
 	
 	// DI 의존 주입
@@ -34,8 +26,16 @@ public class UserService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;
-			
-		
+		return -1;			
+	
 	}
+	
+	@Transactional(readOnly = true)
+	public User login(User user) {
+		// repository select 요청
+		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
+	
+	
+	
 }
