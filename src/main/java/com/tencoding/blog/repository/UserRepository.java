@@ -8,9 +8,10 @@ import com.tencoding.blog.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	
-	// spring JPA 네이밍 전략
-	// SELECT * FROM user WHERE username = ? AND password = ?;
-	User findByUsernameAndPassword(String username, String password);
+	
+//	// spring JPA 네이밍 전략
+//	// SELECT * FROM user WHERE username = ? AND password = ?;
+//	User findByUsernameAndPassword(String username, String password);
 
 	
 //	@Query(value = "SELECT * FROM user WHERE username = ? AND password = ?;")

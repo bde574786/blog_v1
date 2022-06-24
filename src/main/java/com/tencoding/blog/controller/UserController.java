@@ -16,15 +16,13 @@ public class UserController {
 	private HttpSession httpSession;
 	
     // .../blog/user/loing-Form
-    @GetMapping("/login_form")
+    @GetMapping("/auth/login_form")
     public String loginForm() {
-
         return "user/login_form";
     }
 
-    @GetMapping("/join_form")
+    @GetMapping("/auth/join_form")
     public String joinForm() {
-
         return "user/join_form";
     }
     
