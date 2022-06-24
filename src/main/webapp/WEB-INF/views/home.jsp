@@ -19,5 +19,6 @@
 	  <div class="card-body">블로그 내용 부분 ...</div>
 	  <a href="#" class="btn btn-primary">상세보기</a>
 	</div>
+	
  <%@ include file="layout/footer.jsp" %>
     
