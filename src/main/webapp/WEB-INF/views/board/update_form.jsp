@@ -7,16 +7,19 @@
 
   		<form>
     		<div class="form-group">
+    		<input type="hidden" id="id" value="${board.id}">
     		<label for="title">title</label> 
-    		<input type="text" class="form-control" placeholder="Enter title" name="title" id="title" />
+    		<input type="text" value="${board.title}" class="form-control" placeholder="Enter title" name="title" id="title" />
     		</div>
 
     		<div class="form-group">
       		<label for="content">content</label>
-      		<textarea class="form-control summernote" rows="5" id="content" name="content"></textarea>
+      		<textarea class="form-control summernote" rows="5" id="content" name="content">
+      			${board.content}
+      		</textarea>
     		</div>
   		</form>
-  		<button type="button" id="btn-save" class="btn btn-primary">글 쓰기 완료</button>
+  		<button type="button" id="btn-update" class="btn btn-primary">글 수정 완료</button>
 	</div>
 
 <br />

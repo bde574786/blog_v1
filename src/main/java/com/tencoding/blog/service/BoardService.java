@@ -40,4 +40,14 @@ public class BoardService {
 		boardRepository.deleteById(id);
 	}
 	
+	@Transactional
+	public void modifyBoard(int id, Board board) { // title, content
+		Board boardEntity = boardRepository.findById(id).orElseThrow(()->{
+			return new IllegalArgumentException("해당 글은 찾을 수 없습니다");
+		});
+		
+		boardEntity.setTitle(board.getTitle());
+		boardEntity.setContent(board.getContent());
+	}
+	
 }

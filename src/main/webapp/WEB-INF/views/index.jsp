@@ -25,4 +25,5 @@
   	</li>
 	</ul>
 <br/>
+
 <%@ include file="layout/footer.jsp" %>
