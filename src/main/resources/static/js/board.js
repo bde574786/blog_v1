@@ -6,7 +6,6 @@ let index = {
 	},
 	
 	save: function() {
-		
 		// 데이터 가져오기
 		let data = {
 			title: $("#title").val(),
