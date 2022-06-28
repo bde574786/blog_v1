@@ -2,6 +2,10 @@ package com.tencoding.blog.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,17 +21,25 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/auth/joinProc")
-	// 기본 데이터 파싱 전략 key=value
-	// application/x-www-form-urlencoded;charset=UTF-8 // key=value
-	public ResponseDto<Integer> save(User user) { // @RequestBody 넣으면 JSON형식으로 받겠다는 뜻
-		int result = userService.saveUser(user);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
-	}
+	@Autowired
+	private AuthenticationManager authenticationManager; // 미리 security에 올려놔야 함(오버라이드)
+	
+
 	
 	@PutMapping("/user")
 	public ResponseDto<Integer> update(@RequestBody User user) {
+		System.out.println(user);
 		userService.updateUser(user);
+		
+		// 강제로 Authentication 객체를 만들고 SecurityContext 안에 집어 넣으면 된다.
+		
+		// 1. Authentication 객체 생성
+		// 2. AuthenticationManager 메모리에 올려서 Authenticate 메서드를 사용해서 Authentication 객체를 저장한다.
+		// 3. 세션 안에 SecurityContextHolder.getContext().setAuthentication() Authentication 객체를 넣어주면 된다.
+	
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 	
