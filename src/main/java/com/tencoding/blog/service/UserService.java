@@ -56,6 +56,15 @@ public class UserService {
 	}
 	
 	
+	@Transactional(readOnly = true)
+	public User searchUser(String username) {
+		User userEntity = userRepository.findByUsername(username).orElseGet(() -> {
+			return new User();
+		});
+		
+		return userEntity;
+	}
+	
 	
 	
 //	@Transactional(readOnly = true)

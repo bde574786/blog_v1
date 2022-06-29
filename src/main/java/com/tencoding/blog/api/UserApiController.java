@@ -28,7 +28,6 @@ public class UserApiController {
 	
 	@PutMapping("/user")
 	public ResponseDto<Integer> update(@RequestBody User user) {
-		System.out.println(user);
 		userService.updateUser(user);
 		
 		// 강제로 Authentication 객체를 만들고 SecurityContext 안에 집어 넣으면 된다.

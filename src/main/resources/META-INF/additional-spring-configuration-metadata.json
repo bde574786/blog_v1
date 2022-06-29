@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "teco.key",
+  "type": "java.lang.String",
+  "description": "A description for 'teco.key'"
+}]}

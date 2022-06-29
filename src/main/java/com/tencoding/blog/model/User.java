@@ -31,7 +31,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에 연결된 DB의 넘버링 전략을 따라가겠다.
 	private int id;
 
-	@Column(nullable = false, length = 30, unique = true)
+	@Column(nullable = false, length = 100, unique = true)
 	private String username;
 
 	@Column(nullable = false, length = 100)
@@ -47,5 +47,7 @@ public class User {
 //	@ColumnDefault("'user'")
 	@Enumerated(EnumType.STRING)     // enum 타입임을 알려야한다. 
 	private RoleType role; // Enum 타입 사용 권장 : admin, user, manager
+	
+	private String oauth; // kakao, google, naver, ....
 	
 }

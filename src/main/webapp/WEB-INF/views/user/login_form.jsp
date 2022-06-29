@@ -17,12 +17,28 @@
 	    <input class="form-check-input" type="checkbox" /> Remember me </label>
 	  </div>
 	  <button type="submit" id="btn-login" class="btn btn-primary">로그인</button>
-	</form>  	
+	 <a href="https://kauth.kakao.com/oauth/authorize?client_id=e5904cba56818ec84f52222aff569869&redirect_uri=http://localhost:9090/auth/kakao/callback&response_type=code">
+	  <img src="/image/kakao_login.png" width="74" height="38">
+	 </a>
+	 
+	  	
+	  
+	</form>
+	  	
 	
 </div>
 <br/>
 <!--  
 <script src="/js/user.js"></script> 
+
+
+GET /oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code HTTP/1.1
+Host: kauth.kakao.com
+
+https://kauth.kakao.com/oauth/authorize?client_id=e5904cba56818ec84f52222aff569869&redirect_uri=http://localhost:9090/oauth/kakao/callback&response_type=code
 -->
+
+
+
 
 <%@ include file="../layout/footer.jsp" %>

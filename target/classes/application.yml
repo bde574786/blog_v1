@@ -1,7 +1,7 @@
 server:
   port: 9090
   servlet:
-    context-path: / 
+    context-path: /
     encoding:
       charset: UTF-8
       enabled: true
@@ -40,5 +40,13 @@ spring:
     serialization:
       fail-on-empty-beans: false  
     
-      
-            
+  security:
+    user:
+      name: test
+      password: 1234              
+          
+          
+          
+          
+tenco:
+  key: 694e791f1fdcb1bf9fd3be93431db20e0b9bff1b2d0fde0f7d756bea4f79dba2a6ad203c0d07c17bf3b49cb340b3a034a1bfb004d0d6ac1927122c5f73a796eb        
