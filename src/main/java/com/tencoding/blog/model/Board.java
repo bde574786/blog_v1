@@ -55,10 +55,10 @@ public class Board {
 	// 하나의 게시글에 여러 개의 댓글이 있을 수 있다.
 	// one = board, many = reply
 	// mappedBy = "board" board는 reply에 필요 이름이다.
-	// mappedBy는 연관관계의 주인이 아니다. FK가 아님 ㄹ
+	// mappedBy는 연관관계의 주인이 아니다. FK가 아님
 	// DB에 컬럼을 만들지 마시오
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
-	private List<Reply> reply;
+	private List<Reply> replys;
 	
 	
 	
