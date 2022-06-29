@@ -3,6 +3,7 @@ package com.tencoding.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -59,11 +61,11 @@ public class Board {
 	// mappedBy = "board" board는 reply에 필요 이름이다.
 	// mappedBy는 연관관계의 주인이 아니다. FK가 아님
 	// DB에 컬럼을 만들지 마시오
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) 
 	@JsonIgnoreProperties({"board", "content"}) // Reply 안에 있는 board getter를 무시
+	@OrderBy("id desc")
 	private List<Reply> replys;
-	
-	
+		
 	
 	@CreationTimestamp
 	private Timestamp createDate;
