@@ -20,6 +20,12 @@
   	<a class="page-link" href="?page=${pageable.number - 1}">Previous</a>
   	</li>
   	
+  	<c:forEach var="num" items="${pageNumbers}">
+  	<li class="page-item"><a class="page-link" href="#">1</a></li>
+  	
+  	</c:forEach>
+
+  	
   	<li class="page-item ${pageable.last ? isDisabled : isNotDisabled}">
   	<a class="page-link" href="?page=${pageable.number + 1}">Next</a>
   	</li>

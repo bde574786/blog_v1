@@ -108,7 +108,7 @@ public class DummyControllerTest {
 	// 페이징 처리
 	// http://localhost:9090/blog/dummy/user?page=0
 	@GetMapping("/dummy/user")
-	public Page<User> pageList(@PageableDefault(size = 2, sort = "id", 
+	public Page<User> pageList(@PageableDefault(size = 1, sort = "id", 
 			direction = Direction.DESC) Pageable pageable) {
 
 //	    Page page = userRepository.findAll(pageable);
