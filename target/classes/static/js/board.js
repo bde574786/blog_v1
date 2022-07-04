@@ -56,9 +56,17 @@ let index = {
 	},
 	
 	deleteById: function() {
+		
+		let token = $("meta[name='_csrf']").attr("content");
+		let header = $("meta[name='_csrf_header']").attr("content");
+		
 		let id = $("#board-id").text();
 		
 		$.ajax({
+			beforeSend : function(xhr) {
+				console.log("xhr : " + xhr);
+				xhr.setRequestHeader(header, token)
+			},
 			type:"DELETE",
 			url:"/api/board/" + id
 		})
@@ -163,7 +171,15 @@ let index = {
 	
 	
 	replyDelete: function(boardId, replyId) {
+		
+		let token = $("meta[name='_csrf']").attr("content");
+		let header = $("meta[name='_csrf_header']").attr("content");
+		
 		$.ajax({
+			beforeSend : function(xhr) {
+				console.log("xhr : " + xhr);
+				xhr.setRequestHeader(header, token)
+			},
 			type: "DELETE", 
 			url: `/api/board/${boardId}/reply/${replyId}`,
 			dataType: "json"
