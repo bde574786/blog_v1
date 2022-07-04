@@ -80,6 +80,9 @@ let index = {
 	
 	update: function() {
 		
+		let token = $("meta[name='_csrf']").attr("content");
+		let header = $("meta[name='_csrf_header']").attr("content");
+		
 		let data = {
 			username: $("#username").val(),
 			id: $("#id").val(),
@@ -88,6 +91,9 @@ let index = {
 		}
 		
 		$.ajax({
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader(header, token)
+			},
 			type: "put",
 			url: "/user",
 			data: JSON.stringify(data),
