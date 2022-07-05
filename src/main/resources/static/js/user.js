@@ -5,11 +5,6 @@ let index = {
 			this.save();
 		});
 		
-		// 전통적인 로그인 방식일 때 사용한 부분
-		// $("#btn-login").bind("click", () => {
-		//	this.login();
-		// });
-		
 		$("#btn-update").bind("click", () => {
 			this.update();
 		});
@@ -17,16 +12,23 @@ let index = {
 	},
 	
 	save: function() {
+		
+		let token = $("meta[name='_csrf']").attr("content");
+		let header = $("meta[name='_csrf_header']").attr("content");
+		
 		let data = {
 			username: $("#username").val(),
 			password: $("#password").val(),
 			email: $("#email").val()
 		
 		}
-		// console.log(data);
+		 console.log(data);
 		
-		// ajax 호출
+
 		$.ajax({
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader(header, token)
+			},
 			// 서버측에 회원가입 요청
 			type: "POST",
 			url: "/auth/joinProc",
@@ -49,34 +51,6 @@ let index = {
 		});	
 		
 	},
-	
-	/**
-	
-	login: function() {
-		let data = {
-			username: $("#username").val(),
-			password: $("#password").val()
-		}
-		// ajax 호출
-		$.ajax({
-			// 회원 로그인 요청
-			type: "POST",
-			url: "/api/user/login",
-			data: JSON.stringify(data),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json"
-		}).done(function(data, textStatus, xhr) {
-			alert("로그인이 완료되었습니다");
-			location.href="/";
-			console.log(data);
-		}).fail(function(error) {
-			alert("로그인에 실패했습니다");
-			console.log(error);
-		});
-		
-				
-	}
-	 */
 	
 	update: function() {
 		

@@ -38,20 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private PrincipalDetailService principalDetailService;
 	
-	
-//	// // <--- url
-//	@Override
-//	public void configure(WebSecurity web) throws Exception {
-//		web.httpFirewall(defaultHttpFirewall());
-//	}
-//	
-//	@Bean
-//	public HttpFirewall defaultHttpFirewall() {
-//		return new DefaultHttpFirewall();
-//	}
-	
-	
-	
 	// 2 특정 주소 필터를 생성할 예정
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

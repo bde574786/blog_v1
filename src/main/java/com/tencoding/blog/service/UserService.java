@@ -21,7 +21,7 @@ public class UserService {
 
 	@Transactional
 	public int saveUser(User user) {
-
+		System.out.println("12312312312");
 		try {
 			String rawPassword = user.getPassword();
 			String encPassword = encoder.encode(rawPassword);

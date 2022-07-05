@@ -35,7 +35,6 @@ import com.tencoding.blog.model.User;
 import com.tencoding.blog.service.UserService;
 
 @Controller
-
 public class UserController {
 	
 	@Value("${tenco.key}")
