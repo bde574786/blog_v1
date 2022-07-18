@@ -20,6 +20,13 @@
 	<dependencies>
 		<!-- 추가적인 부분 Start -->
 		
+		<!-- https://mvnrepository.com/artifact/org.qlrm/qlrm -->
+		<dependency>
+		    <groupId>org.qlrm</groupId>
+		    <artifactId>qlrm</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+				
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -31,14 +38,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		
-		<!-- qlrm -->
-		<dependency>
-			<groupId>org.qlrm</groupId>
-			<artifactId>qlrm</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-		
 		
 		<!-- 시큐리티 태그 라이브러리 -->
 		<dependency>

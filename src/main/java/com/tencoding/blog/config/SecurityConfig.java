@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 	.and()
 		.authorizeRequests()
-		.antMatchers("/auth/**", "/", "/js/**", "/css/**","/image/**","/dummy/**", "/test/**")
+		.antMatchers("/auth/**", "/", "/js/**", "/css/**","/image/**","/dummy/**", "/test/**") // 해당 주소 허용, 허용 되지 않았다면 security가 자동으로 로그인 페이지로 가져감
 		.permitAll()
 		.anyRequest()
 		.authenticated()

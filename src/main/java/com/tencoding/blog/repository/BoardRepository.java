@@ -11,4 +11,6 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	// SELECT * FROM board WHERE title LIKE '%[title]%'
 	Page<Board> findByTitleContaining(String title, Pageable pageable);
 	
+	// 기본 데이터
+	
 }

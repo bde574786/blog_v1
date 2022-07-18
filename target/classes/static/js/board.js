@@ -40,8 +40,8 @@ let index = {
 			type: "POST",
 			url: "/api/board",
 			data: JSON.stringify(data),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json"
+			contentType: "application/json; charset=utf-8", // 메타 타입
+			dataType: "json" // 응답받는 타입이 json
 			
 		})
 		.done(function(data, textStatus, xhr){

@@ -33,7 +33,7 @@ public class BoardController {
 	
 	@GetMapping({"", "/", "/board/search"})
 	// @RequestParam은 null 이면 오류를 반환하지만 없다면 null도 허용함
-	public String index(String q, Model model, @PageableDefault(size = 5 , 
+	public String index(String q, Model model, @PageableDefault(size = 5, 
 	 			sort = "id", direction = Direction.DESC) Pageable pageable) {
 		
 		String searchTitle = q == null ? "" : q;
